@@ -1,2 +1,0 @@
-# mmicome.github.io
-myblog
