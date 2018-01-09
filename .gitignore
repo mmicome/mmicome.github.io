@@ -1,6 +1,6 @@
-.bundle
-Gemfile.lock
-_site
-*.gem
-_drafts
-
+_site/
+.sass-cache/
+*.DS_Store
+.idea
+*.swp
+.Trashes
