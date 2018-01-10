@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
     //$(".mumu").jrumble({rangeX: 2,rangeY: 2,rangeRot: 1});
     $(".mumu").mouseover(function () {
        $(".mumu").fadeTo("300", 0.3);
-       msgs = ["我隐身了，你看不到我", "我会隐身哦！嘿嘿！", "别动手动脚的，把手拿开！", "把手拿开我才出来！"];
+       msgs = ["你变得可靠多了", "什么也没发生！", "请教我剑术！", "我会成为世界第一大剑豪！"];
        var i = Math.floor(Math.random() * msgs.length);
         showMessage(msgs[i]);
     });
@@ -38,9 +38,9 @@ jQuery(document).ready(function ($) {
     if (isindex) { //如果是主页
         var now = (new Date()).getHours();
         if (now > 0 && now <= 6) {
-            showMessage(visitor + ' 你是夜猫子呀？还不睡觉，明天起的来么你？', 6000);
+            showMessage(visitor + ' 出发', 6000);
         } else if (now > 6 && now <= 11) {
-            showMessage(visitor + ' 早上好，早起的鸟儿有虫吃噢！早起的虫儿被鸟吃，你是鸟儿还是虫儿？嘻嘻！', 6000);
+            showMessage(visitor + ' 吵死了', 6000);
         } else if (now > 11 && now <= 14) {
             showMessage(visitor + ' 中午了，吃饭了么？不要饿着了，饿死了谁来挺我呀！', 6000);
         } else if (now > 14 && now <= 18) {
@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
         }
     }
     else {
-        showMessage('欢迎' + visitor + '来到亢志军的个人博客《' + title + '》', 6000);
+        showMessage('欢迎' + visitor + '来到icome的个人博客《' + title + '》', 6000);
     }
     $(".spig").animate({
         top: $(".spig").offset().top + 300,
@@ -245,7 +245,7 @@ jQuery(document).ready(function ($) {
         }
     });
 });
-//显示消息函数 
+//显示消息函数
 function showMessage(a, b) {
     if (b == null) b = 10000;
     jQuery("#message").hide().stop();
@@ -267,7 +267,7 @@ jQuery(document).ready(function ($) {
      });
     $(document).mousemove(function (e) {
         if (_move) {
-            var x = e.pageX - _x; 
+            var x = e.pageX - _x;
             var y = e.pageY - _y;
             var wx = $(window).width() - $('#spig').width();
             var dy = $(document).height() - $('#spig').height();

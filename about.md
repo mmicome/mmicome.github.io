@@ -1,33 +1,33 @@
 ---
 layout: page
-title: 关于我「ABOUT ME」 
-date: 2017-12-27 
+title: 关于我「ABOUT ME」
+date: 2017-12-27
 ---
-<a href="/photos/" target="_blank"><img src="http://omjh2j5h3.bkt.clouddn.com/%E5%A4%A9%E7%AD%96.jpg" width="150" height="150" alt="photos"/></a>
+<a href="/photos/" target="_blank"><img src="{{ site.baseurl }}/images/spigbackup2.png" width="150" alt="photos"/></a>
 
 <p>
-一个刚刚走出象牙塔的 Maker「未更新」<a href="{{ site.baseurl }}/jianli.pdf" target="_blank"> 「我的简历」 </a>    
+一个对技术充满渴望的 Maker「未更新」<a href="{{ site.baseurl }}/jianli.pdf" target="_blank"> 「我的简历」 </a>    
 
 
 <div style="color:#FF6633">
-<p>	三尺微命，一介书生。求学于卫星湖畔，黄瓜山下，欲潜心研究智能机器人开发应用之道。然所学颇杂，对诸多方面均有涉猎，喜欢研究一些新技术和关注一些最新的科技~
+<p>一朝前沉旧梦碎，往事不堪回首，往来萧萧处；而今磨洗，纵有千般难，我也直步向前~
+<br> 引用黑胡子的一句话：“人的梦想从不会停止！”
 </p>
 </div>
 <p>
-平时喜欢整理个人博客，逛逛技术论坛     
+喜欢写文档，coding，逛逛技术论坛, 偶尔欣赏些艺术创作，：） 活在二次元，是个猫奴～～     
 <p>
-<!-->喜欢日本，想着如果有机会一定会去日本生活一段时间<-->        
+<!-->性格有点天真（：就是傻啦！，如果有可能，就去环游世界吧<-->        
 <div style="color:#008B00">
 <p>
-喜欢Spoken English，虽然现在很渣，但一直在努力...        
+编程的魅力让我找到了最初的，一种朦胧的感觉，不停的学习，达到技术的巅峰hack是我的执着和追求，如果我的技术何以创造价值的话，那就去工作...        
 </p>
 
 </div>
 <p>
-同时喜欢老罗和晓松，虽然他俩还撕逼，罗跟谁不撕逼，爱听老罗的单口相声           
+习惯了独处，去安静默默的思考          
 <p>
-I'm a single-dog.  But codes and godgirl are my favorite.  Life is colorful, this website   is a window which used to present the color of my life.       
-
+To do what you like, into worth mentioning, worth mentioning, there is nothing to regret！    
 <p>
 
 <h3> PastTime</h3>   
@@ -35,35 +35,23 @@ I'm a single-dog.  But codes and godgirl are my favorite.  Life is colorful, thi
 <p>
 
 
-也许你听说过，「业余时间决定人生」；也许你还听说过，「听过很多道理，依然过不好这一生」。书籍、代码、博客、运动、电影、美剧、游戏，这就是我的业余生活。            
+「努力并不一定实现梦想」；老之将死，却了无遗憾，「听过很多道理，依然过不好这一生」。书籍、代码、博客、电影、游戏，这就是我的业余生活。            
 
 
 <div style="color:#708090">
 <p>
-     我的能力就这么多。我若全心工作，则必然忽略生活；我若用心生活，则必然一事无成；我若两者兼顾，又难免平庸
+     “我的能力就这么多。我若全心工作，则必然忽略生活；我若用心生活，则必然一事无成；我若两者兼顾，又难免平庸”
 </p>
 </div>
 <p>
-趁我在还能看得进书写得动代码的年纪，努力一回，看看这平庸的资质究竟能发挥几分。
+年轻真好！！！。
 
 <p>
 
 <h3> Ps </h3>   
 <p>
-如果你想搭建一个跟我一样的博客，可以看
-<a href="/2017/03/HowToCreateBlog/"> Jekyll+Github个人博客构建之路 </a>
-教程
-
-<p>
-
-有关于博客主题的建议和意见都可以提给我，让我们一起来打造一个精美的主题吧~ 
-
-<p> 
-
-博客源码在 <a target="_blank" href='https://github.com/MengZheK/kangblog.github.io/' target="_blank" >Github</a> 上，你的 Star 是我更新的动力，谢谢~
-<div style="color:#D53F77"><p>模板代码可任意使用，但请保留本站友情链接。 &emsp;      
-本站名称：Robotkang &emsp;        
-本站网址：http://www.robotkang.cc &emsp;         
+本站名称：icome &emsp;        
+本站网址：<a href="https://mmicome@gmail.com">https://mmicome@gmail.com</a>         
 </p>
 </div>
 <h3> 联系方式 </h3>         
@@ -73,12 +61,9 @@ I'm a single-dog.  But codes and godgirl are my favorite.  Life is colorful, thi
 	}
 </script>
 
-<p>邮箱：robotkang@foxmail.com &emsp;<a href="#" onmouseover="mousemethod('block','img1')" onmouseout="mousemethod('none','img1')" style="color:#FF4500;text-decoration:none">微信：kang1390305137</a><img id="img1" src="http://omjh2j5h3.bkt.clouddn.com/kangweix.png" style="display:none;"  width="128" height="128">&emsp;
-	<a href="#" onmouseover="mousemethod('block','img2')" onmouseout="mousemethod('none','img2')" style="color:#008B00;text-decoration:none">公众号：创客工坊DIY</a><img id="img2" src="http://omjh2j5h3.bkt.clouddn.com/kanggzh.png" style="display:none;" width="128" height="128" >
- 
+<p>邮箱：mmicome@gmail.com &emsp;<a href="#" onmouseover="mousemethod('block','img1')" onmouseout="mousemethod('none','img1')" style="color:#FF4500;text-decoration:none">微信：813221186</a><img id="img1" src="http://omjh2j5h3.bkt.clouddn.com/kangweix.png" style="display:none;"  width="128" height="128">&emsp;
+	<a href="#" onmouseover="mousemethod('block','img2')" onmouseout="mousemethod('none','img2')" style="color:#008B00;text-decoration:none">公众号：待开发</a><img id="img2" src="http://omjh2j5h3.bkt.clouddn.com/kanggzh.png" style="display:none;" width="128" height="128" >
+
 <p>
 <a href="/lovekang/" style="color:#708090"  target="_blank"> <h5>Website Time</h5></a>  
 </p>
-
-
-

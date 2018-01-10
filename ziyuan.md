@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 资源「USEFUL LINKS」 
+title: 资源「USEFUL LINKS」
 ---
-这是我的资源仓库，我是仓库管理员！哈哈...        
-<P>大家来到此地不必约束，各取所需，各取所需哈..       
+这是我的资源仓库，尽情享用吧...        
+<P>codelib toolcamp，额，不如美酒佳肴..       
 <P>Life is colorful, this website is a window which used to present the color of my life.          
 
 
@@ -14,7 +14,7 @@ title: 资源「USEFUL LINKS」
 <img src="http://omjh2j5h3.bkt.clouddn.com/icon/%E9%85%8D%E8%89%B2%E5%99%A8.png" width="20" height="20" alt="photos" style="display:inline;margin-bottom: -5px;"/>
 <a href="/college/" target="_blank">大学|四年</a>- 记青春年华.&nbsp;&nbsp;
 <img src="http://omjh2j5h3.bkt.clouddn.com/icon/%E4%BC%98%E7%95%8C%E7%BD%91.png" width="20" height="20" alt="photos" style="display:inline;margin-bottom: -5px;"/>
-<a href="/college/" style="color:#DC143C" target="_blank">二三好友</a>- 似水流年 & FLAG&nbsp;&nbsp;
+<a href="/college/" style="color:#DC143C" target="_blank">二三|室友</a>- 似水流年 & FLAG&nbsp;&nbsp;
 <img src="http://omjh2j5h3.bkt.clouddn.com/icon/Colorfavs.png" width="20" height="20" alt="photos" style="display:inline;margin-bottom: -5px;"/>
 <a href="/book/" style="color:#DC143C" target="_blank">个人书单</a>-  FLAG&nbsp;&nbsp;
 <img src="http://omjh2j5h3.bkt.clouddn.com/icon/%E5%AD%A6UI%E7%BD%91.png" width="20" height="20" alt="photos" style="display:inline;margin-bottom: -5px;"/>
@@ -61,7 +61,7 @@ title: 资源「USEFUL LINKS」
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://xiaolei.tech" target="_blank" >Xiaolei</a>- 电科，影响了我的一位大神.
 
 <h3> Others</h3>  
- <p> 
+ <p>
 Markdown语法参考链接:<a href="https://www.zybuluo.com/mdeditor" target="_blank" > 作业部落 </a> &nbsp;&nbsp; <a  href="http://nav.templatesy.com/"  >Templatesy</a>-前端网址导航.
 <p>
 <a href="http://www.w3school.com.cn" target="_blank" > w3school </a>-在w3school上，你可以找到全面的~建站资料「html、css、sql、php...」
@@ -85,11 +85,3 @@ Markdown语法参考链接:<a href="https://www.zybuluo.com/mdeditor" target="_b
 <a href="http://www.jq22.com/demo/jquery-xiangqi-141214215742/"  target="_blank" >中国象棋</a>-国粹&nbsp;&nbsp;
 <p><a href="http://www.jq22.com/demo/jquery-jfcz20160830/"  target="_blank" >见缝插针</a>-看你过得了多少关..&nbsp;&nbsp;
 <a href="http://www.jq22.com/demo/jquery-wzq20151231/"  target="_blank" >五子棋</a>-益智小游戏&nbsp;&nbsp;
-
-
-
-
-
-
-
-
