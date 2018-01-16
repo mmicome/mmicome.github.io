@@ -4,7 +4,7 @@ title: 留言板「MESSAGE」
 comments: true 
 ---
 
-<img src="/images/welcome.jpg" width="360" height="250" alt="huanying"/>
+<img src="{{ site.baseurl }}/images/welcome.jpg" width="360" height="250" alt="huanying"/>
 
 
 <p><h4>有什么话要对我说吗？</h4>     
