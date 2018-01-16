@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    body {
+	    	overflow: hidden;
+	    }
+		.wrap {
+			width: 200px;
+			height: 180px;
+			border: none;
+			position: absolute;
+			right: -180px;
+			top: 40%;
+			opacity: 0.2;
+			filter:alpha(opacity=80);
+		}
+		.wrap .content {
+			float: left;
+			width: 180px;
+			height: 180px;
+			background: gray;
+		}
+		.wrap .tip {
+			display: block;
+			float: left;
+			width: 20px;
+			height: 30px;
+			background: yellowgreen;
+			margin-top: 75px;
+		}
+	</style>
+	<script src="move.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<span class="tip"></span>
+		<div class="content"></div>
+	</div>
+	<script>
+		window.onload = function() {
+			// ---简单动画，透明度，缓冲动画，多物体,链式运动，同时运动----
+			// ----------- 获取对象，变量定义 -----------------
+			var wrap = document.getElementsByClassName('wrap')[0];
+			//------------- 处理逻辑 ----------------------------
+			wrap.onmouseover = function() {
+				var self = this;
+				contentMove(self,{right:0,opacity:100});
+			};
+			wrap.onmouseout = function() {
+				contentMove(this,{right:-180,opacity:20},function() {
+					console.log("ok");
+				});
+			};
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  ul {
+    width: 244px;
+    height: 218px;
+    border: none;
+    border-top:1px solid #ccc;
+    border-right:1px solid #ccc;
+  }
+  li {
+    width: 60px;
+    height:70px;
+    float:left;
+    display: inline-block;
+    border: 1px solid #ccc;
+    list-style: none;
+    border-top: none;
+    border-right: none;
+    position: relative;
+    overflow: hidden;
+  }
+  li i {
+    display: block;
+    width: 50%;
+    height:40%;
+    margin: auto;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+  }
+  li a {
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    display: block;
+    width:100%;
+    position: absolute;
+    bottom:10px;
+  }
+  li a:hover {
+    text-decoration: underline;
+  }
+  li:nth-of-type(1) i{
+    background: url(bg.png) 1px 0 no-repeat;
+  }
+  li:nth-of-type(2) i{
+    background: url(bg.png) 1px -45px no-repeat;
+  }
+  li:nth-of-type(3) i{
+    background: url(bg.png) 1px -90px no-repeat;
+  }
+  li:nth-of-type(4) i{
+    background: url(bg.png) 1px -135px no-repeat;
+  }
+  li:nth-of-type(5) i{
+    background: url(bg.png) 1px -175px no-repeat;
+  }
+  li:nth-of-type(6) i{
+    background: url(bg.png) 1px -220px no-repeat;
+  }
+  li:nth-of-type(7) i{
+    background: url(bg.png) 1px -265px no-repeat;
+  }
+  li:nth-of-type(8) i{
+    background: url(bg.png) 1px -305px no-repeat;
+  }
+  li:nth-of-type(9) i{
+    background: url(bg.png) 1px -350px no-repeat;
+  }
+  li:nth-of-type(10) i{
+    background: url(bg.png) 1px -395px no-repeat;
+  }
+  li:nth-of-type(11) i{
+    background: url(bg.png) 1px -440px no-repeat;
+  }
+  li:nth-of-type(12) i{
+    background: url(bg.png) 1px -485px no-repeat;
+  }
+</style>
+<script src="move.js"></script>
+<body>
+  <div class="wrap">
+    <ul>
+      <li><i></i><a href="https://www.alitrip.com/jiudian?spm=a21bo.2017.201866.7.2750052bJ8M2SK">冲话费</a></li>
+      <li><i></i><a href="">旅行</a></li>
+      <li><i></i><a href="">车险</a></li>
+      <li><i></i><a href="">游戏</a></li>
+      <li><i></i><a href="">彩票</a></li>
+      <li><i></i><a href="">电影</a></li>
+      <li><i></i><a href="">酒店</a></li>
+      <li><i></i><a href="">理财</a></li>
+      <li><i></i><a href="">找服务</a></li>
+      <li><i></i><a href="">滴滴</a></li>
+      <li><i></i><a href="">水电煤</a></li>
+      <li><i></i><a href="">火车票</a></li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function() {
+      var li= document.getElementsByTagName('li');
+      for(var i = 0; i < li.length; i++) {
+        li[i].onmouseover = function() {
+          var that = this.getElementsByTagName('i')[0];
+          contentMove(that,{top: -5,opacity:0},function() {
+            that.style.top = 20 + 'px';
+            contentMove(that,{top:12,opacity:100});
+          });
+        }
+      }
+    }
+  </script>
+</body>
+</html>
