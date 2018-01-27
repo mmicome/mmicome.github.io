@@ -34,7 +34,7 @@ title: 资源「USEFUL LINKS」
 <a href="https://www.panc.cc" target="_blank">胖次</a>- 网盘，资料搜索..&nbsp;&nbsp;
 <a href="https://i.sihua.me/?u=9831" style="color:#DC143C" target="_blank">梯子[Ladder]</a>- 可访问Google的东东 &nbsp;&nbsp;
 <a href="http://daohang.lusongsong.com/" target="_blank">博客大全</a>- Blog&nbsp;&nbsp;
-
+<a href="/fontmark/" target="_blank">web开发资源大全</a>- source&nbsp;&nbsp;
 <p>
 <a href="http://www.86ditu.com" target="_blank">卫星地图「谷歌」</a>- 来找找你家的房顶吧...
 
