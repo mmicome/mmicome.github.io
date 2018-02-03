@@ -323,3 +323,29 @@ ROOT.xml 文件添加以下内容:
 :wq 保存推出，重启tomcat。
 在 /home/sam/share/upload 存放共享资源 a.jpg
 浏览器访问：http://www.sam.com:8080/upload/a.jpg ，即可获取到该资源。
+
+### 注：
+## 设置CLASSPATH环境变量
+由于servlets不是Java SE的一部分，所以您必须标示出servlet类的编译器。
+
+假如您用的是Windows机器，您需要在C:\autoexec.bat文件中添加以下两行：
+
+	set CATALINA=C:\apache-tomcat-5.5.29
+	set CLASSPATH=%CATALINA%\common\lib\jsp-api.jar;%CLASSPATH%
+	
+或者，在Windows NT/2000/XP下，您只要右击我的电脑，选择属性，然后点击高级，然后点击环境变量，接下来便可以设置CLASSPATH变量并且确定退出即可。
+
+在Linux/Unix机器下，假如您使用的是C shell，那么您就需要在.cshrc文件中添加以下两行：
+
+	setenv CATALINA=/usr/local/apache-tomcat-5.5.29
+	setenv CLASSPATH $CATALINA/common/lib/jsp-api.jar:$CLASSPATH
+
+注意：如果您的开发路径是C:\JSPDev (Windows)或者 /usr/JSPDev (Linux/Unix)，那么您就需要将这些路径添加进CLASSPATH变量中。
+
+### tomcat 的 8080 端口经常会被占用，解决办法两个：
+
+ 1、关闭占用8080端口的进程：8080端口被占用的话执行startup.bat会报错，可在cmd下执行netstat -ano命令查看8080是否被占用，如果被占用可根据相应的PID号在任务管理器查找并关闭相应进程，然后重启tomcat。此方法弊端是端口被占用就得重复上述操作。
+ 2、更改tomcat端口：进入tomcat安装目录\conf\文件夹，以记事本打开service.xml，在如下所示位置指定新的端口号并重启tomcat。
+<Connector port="8022" protocol="HTTP/1.1"
+    connectionTimeout="20000" 
+    redirectPort="8443" />
