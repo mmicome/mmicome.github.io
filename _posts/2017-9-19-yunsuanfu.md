@@ -337,3 +337,18 @@ void运算符可以取代上面两种写法。
     console.log(d2);
     console.log(d2 === d.valueOf()); // false
     ```
+
+**代码优化** :三元运算符可以被视为if...else...的简写形式，因此可以用于多种场合。
+
+        ```js
+        var even = (n % 2 === 0) ? true : false;
+        ```
+
+        ```js
+        var even;
+        if (n % 2 === 0) {
+          even = true;
+        } else {
+          even = false;
+        }
+        ```
