@@ -23,7 +23,7 @@ comments: true
 
 **javascript运行环境由宿主环境和执行期环境共同构成，宿主环境由外壳程序生成，如web浏览器。执行期环境由嵌入到外壳程序的javascript引擎（javascript解释器）生成。在这个环境中，javascript生成内置静态对象，初始化执行环境等**
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/js-run-envir.png)
+![图示]({{ site.baseurl }}/post_imgs/js-run-envir.png)
 
 ### 宿主环境
 
