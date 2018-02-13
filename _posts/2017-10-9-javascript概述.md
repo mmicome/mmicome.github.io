@@ -27,7 +27,9 @@ comments: true
 
 ### 宿主环境
 
-javascript 脚本语言不提供输入输出接口，没有与系统和外界通信的能力
+- 宿主环境创建一套公共对象系统，允许所有脚本语言进行访问，并提供公共接口，装载不同的脚本引擎
+- javascript 脚本语言不提供输入输出接口，没有与系统和外界通信的能力
+- 外壳程序通过符合标准的拓展接口接纳更多的插件，组件，activeX控件，web浏览器自定义的DOM组件，符合W3C标准，通过宿主环境与js引擎联系，允许js引擎对其进行控制，操作html,xml
 
 ### 执行期环境
 
@@ -76,13 +78,13 @@ v8                 | chrome
 
   将中间代码生成二进制字节码
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/js_analysis.png)
+![图示]({{ site.baseurl }}/post_imgs/js_analysis.png)
 
 **_js解释型语言，在建立语法树之后就开始解释执行，而不是在完全生成字节码之后再调用虚拟机执行这些编译好的字节码_**
 
 #### 词法分析器实现
 
-- 去掉注释
+- 去掉注释，自动生成文档
 - 标记错误
 - 完成预处理
 
@@ -104,7 +106,7 @@ v8                 | chrome
 
 词法分析与语法分析交错进行，词法分析器不会读取所有的词法标记，然后再使用语法分析器处理。通常情况下，每取一个词法标记，就送入语法分析器进行分析
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/analysis.png)
+![图示]({{ site.baseurl }}/post_imgs/analysis.png)
 
 语法分析将词法分析所产生的记号流生成语法树，即把从程序中收集的信息存储在数据结构中。编译中的数据结构包括两种：符号表和语法树。
 
@@ -114,10 +116,13 @@ v8                 | chrome
           a=0;  
       }  
       //2.转化为记号流
-      //3.转化为语法树
+      //3.转化为词法树
+      //4.转化为语法树
       ```
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/tree.jpg)
+符号表： 程序用来存储所有符号的一个表，包括所有的字符串变量，直接量字符串，函数和类
+
+![图示]({{ site.baseurl }}/post_imgs/tree.jpg)
 
 ### 2\. 执行期
 
