@@ -2,7 +2,7 @@
 layout: post
 title: js
 date: 2017-10-9
-description: js
+description: js 概述
 tag: js
 comments: true
 ---
@@ -124,9 +124,10 @@ v8                 | chrome
 
 ![图示]({{ site.baseurl }}/post_imgs/tree.jpg)
 
-### 2\. 执行期
+### 2\. 执行期 **important**
 
-- js 词法采用词法作用域，js的变量和函数作用域是在定义时决定的，而不是执行时决定的，由于词法作用域取决与源码结构，所以js解释器只需要静态分析就可以确定每个变量，函数的作用域，这种作用域也称为静态作用域。
+- 经过编译阶段的准备，js代码在内存中已经构建为语法树，然后js引擎就会根据这个语法树结构边解释边执行 
+- js 词法采用词法作用域，js的变量和函数作用域是在定义时决定的，而不是执行时决定的，由于词法作用域取决于源码结构，所以js解释器只需要静态分析就可以确定每个变量，函数的作用域，这种作用域也称为静态作用域。
 - js解释器执行每个函数时，先创建执行环境，在这个虚拟环境中创建一个调用对象，这个对象内存储着当前域中所有的局部变量，参数，嵌套函数，外部引用和父级引用列表upvalue等语法分析结构
 - 事实上通过声明语句定义的变量和函数在预编译期的语法分析中就已经存储在符号表中，然后把他们与调用对象中的同名属性进行映射即可，调用对象的生命周期与函数的生命周期是一致的，当函数调用完毕且无外部引用的情况下，会自动被js引擎当作垃圾回收
 - js解释器通过作用域链把多个嵌套作用域串联在一起，并借助这个作用域连帮助js检索变量的值，这个作用域链相当与一个索引表，并通过编号存储他们的嵌套关系。js解释器检索变量时按照索引编号进行快速查找，直到全局变量为止，如果没有，返回undefined
@@ -201,12 +202,13 @@ v8                 | chrome
 
       ```javascript
       <script>
-      document.write('<script type="text/javascript" src="test.js"><\/script>');
-      document.write('<script type="text/javascript">');
-      document.write('alert(n);');             //IE提示找不到变量n, 其他浏览器可以;
-      document.write('<\/script>');
-      alert(n+1);                             //所有浏览器提示找不到变量n;
+          document.write('<script type="text/javascript" src="test.js"><\/script>');
+          document.write('<script type="text/javascript">');
+          document.write('alert(n);');             //IE提示找不到变量n, 其他浏览器可以;
+          document.write('<\/script>');
+          alert(n+1);                             //所有浏览器提示找不到变量n;
       <\/script>
+
       //外部test.js代码
       var n = 1;
       ```
@@ -235,42 +237,47 @@ v8                 | chrome
 
 - 在IE中的执行顺序
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/one.png)
+![图示]({{ site.baseurl }}/post_imgs/one.png)
 
-- 在符合DOM标准的浏览器中执行顺序 ![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/two.png)
+- 在符合DOM标准的浏览器中执行顺序
 
-> 解决不同浏览器不同执行顺序，可以把使用输出脚本导入的外部文件都放在独立的代码块中。
+![图示]({{ site.baseurl }}/post_imgs/two.png)
 
->
-> <script type="text/javascript">
-> document.write('<script type="text/javascript" src="text.js"><\/script>');
-> <\/script>
-> <script type="text/javascript">
-> document.write('<script type="text/javascript">');
-> document.write('alert(2);');             //IE提示找不到变量n;
-> document.write('alert(n+2);');
-> document.write('<\/script>');
-> alert(n+1);                             //所有浏览器提示找不到变量n;
-> <\/script>
-> //外部test.js代码
-> var n = 1;
-> alert(n);
+解决不同浏览器不同执行顺序，可以把使用输出脚本导入的外部文件都放在独立的代码块中。
+
+    ```js
+    <script type="text/javascript">
+        document.write('<script type="text/javascript" src="text.js"><\/script>');   //提示1
+    <\/script>
+
+    <script type="text/javascript">
+        document.write('<script type="text/javascript">');
+        document.write('alert(2);');             //提示2
+        document.write('alert(n+2);');            //提示3
+        document.write('<\/script>');             
+        alert(n+3);                             //提示4
+    <\/script>
+
+    //外部test.js代码
+    var n = 1;
+    alert(n)                                      
+    ```
 
 # JavaScript 运行机制详解
 
 ## 一、JS单线程、异步、同步概念
 
-- JS 是单线程的（如果一个线程删DOM，一个线程增DOM，浏览器傻逼了～所以只能单着了），但是却能执行异步任务，这主要是因为 JS 中存在事件循环（Event Loop）和任务队列（Task Queue）。
+- JS 是单线程的（如一个线程删DOM，一个线程增DOM），但是却能执行异步任务，这主要是因为 JS 中存在事件循环（Event Loop）和任务队列（Task Queue）。
 
-- 虽然有webworker酱紫的多线程出现，但也是在主线程的控制下。webworker仅仅能进行计算任务，不能操作DOM，所以本质上还是单线程。
+- 虽然有webworker多线程出现，但也是在主线程的控制下。webworker仅仅能进行计算任务，不能操作DOM，所以本质上还是单线程。
 
-  单线程即任务是串行的，后一个任务需要等待前一个任务的执行，这就可能出现长时间的等待。但由于****类似ajax网络请求、setTimeout时间延迟、DOM事件的用户交互****等，这些任务并不消耗 CPU，是一种空等，资源浪费，因此出现了异步。通过将任务****交给相应的异步模块去处理，主线程的效率大大提升，可以并行的去处理其他的操作****。当异步处理完成，主线程空闲时，主线程读取相应的`callback`，进行后续的操作，最大程度的利用CPU。此时出现了同步执行和异步执行的概念，同步执行是主线程按照顺序，串行执行任务；异步执行就是cpu跳过等待，先处理后续的任务（CPU与网络模块、timer等并行进行任务）。由此产生了**_任务队列_**与**_事件循环_**，来协调主线程与异步模块之间的工作。
+  单线程即任务是串行的，后一个任务需要等待前一个任务的执行，这就可能出现长时间的等待。但由于**类似ajax网络请求、setTimeout时间延迟、DOM事件的用户交互**等，这些任务并不消耗 CPU，是一种空等，资源浪费，因此出现了异步。通过将任务**交给相应的异步模块去处理，主线程的效率大大提升，可以并行的去处理其他的操作**。当异步处理完成，主线程空闲时，主线程读取相应的`callback`，进行后续的操作，最大程度的利用CPU。此时出现了同步执行和异步执行的概念，同步执行是主线程按照顺序，串行执行任务；异步执行就是cpu跳过等待，先处理后续的任务（CPU与网络模块、timer等并行进行任务）。由此产生了**_任务队列_**与**_事件循环_**，来协调主线程与异步模块之间的工作。
 
   =========================================注释==================================
 
 - **_事件循环：_** JS 会创建一个类似于 while (true) 的循环，每执行一次循环体的过程称之为 `Tick`。每次 `Tick` 的过程就是查看是否有待处理事件，如果有则取出相关事件及回调函数放入执行栈中由主线程执行。待处理的事件会存储在一个任务队列中，也就是每次 `Tick` 会查看任务队列中是否有需要执行的任务。
 
-- **_任务队列：_** 异步操作会将相关回调添加到任务队列中。而不同的异步操作添加到任务队列的时机也不同，如 `onclick`, `setTimeout`, `ajax` 处理的方式都不同，这些异步操作是由浏览器内核的 `webcore` 来执行的，`webcore` 包含上图中的3种 webAPI，分别是 `DOM Binding`、`etwork`、`timer`模块。
+- **_任务队列：_** 异步操作会将相关回调添加到任务队列中。而不同的异步操作添加到任务队列的时机也不同，如 `onclick`, `setTimeout`, `ajax` 处理的方式都不同，这些异步操作是由浏览器内核的 `webcore` 来执行的，`webcore` 包含3种 webAPI，分别是 `DOM Binding`、`network`、`timer`模块。
 
   - `onclick`由浏览器内核的 `DOM Binding` 模块来处理，当事件触发的时候，回调函数会立即添加到任务队列中。
   - `setTimeout` 会由浏览器内核的 `timer` 模块来进行延时处理，当时间到达的时候，才会将回调函数添加到任务队列中.
@@ -279,21 +286,31 @@ v8                 | chrome
 - **_主线程：_** JS 只有一个线程，称之为主线程。而事件循环是主线程中执行栈里的代码执行完毕之后，才开始执行的。所以，主线程中要执行的代码时间过长，会阻塞事件循环的执行，也就会阻塞异步操作的执行。只有当主线程中执行栈为空的时候（即同步代码执行完后），才会进行事件循环来观察要执行的事件回调，当事件循环检测到任务队列中有事件就取出相关回调放入执行栈中由主线程执行。
 
       ```javascript
-      例1：
+      //例1：
+
       var req = new XMLHttpRequest();
         req.open('GET', url);    
         req.onload = function (){};    
         // 这两个异步方法就会在 ajax 完成后推入任务队列，再由主线程执行
+
         req.onerror = function (){};    
         req.send();
-      例2：
+
+      //例2：
+
       setTimeout(function(){
+
       // 如果有大量的操作，可能会阻塞 UI 等，则可以使用 setTimeout 让这些操作在主线程把更重要的代码执行完毕之后，再来执行这里的操作。从而提高浏览器的性能。
+
       },0);  
+
       // 设置为 0，也会有个最小间隔值，也会在主线程中的代码运行完成后，由事件循环从任务队列将回调添加到执行栈中才执行
-      例3：
+
+      //例3：
       // 事件循环测试。执行结果是 2-3-4-1，1在最后输出，说明事件循环是所有同步代码执行完后才开始执行的。
+
       'use strict';
+
       setTimeout(function() {
       　　console.log(1);
       }, 0);
@@ -314,7 +331,7 @@ v8                 | chrome
 
 ## 二、事件循环机制
 
-![图示](https://github.com/mmicome/html/raw/master/everything-for-one/web/javascript/common-pics/eventloop.png)
+![图示]({{ site.baseurl }}/post_imgs/eventloop.png)
 
 > 如上图为事件循环示例图（或JS运行机制图），流程如下： step1：主线程读取JS代码，此时为同步环境，形成相应的堆和执行栈； step2: 主线程遇到异步任务，指给对应的异步进程进行处理（WEB API）; step3: 异步进程处理完毕（Ajax返回、DOM事件处罚、Timer到等），将相应的异步任务推入任务队列； step4: 主线程执行完毕，查询任务队列，如果存在任务，则取出一个任务推入主线程处理（先进先出）； step5: 重复执行step2、3、4；称为事件循环。 执行的大意： 同步环境执行(step1) -> 事件循环1(step4) -> 事件循环2(step4的重复)... 其中的异步进程有： a、类似onclick等，由浏览器内核的DOM binding模块处理，事件触发时，回调函数添加到任务队列中； b、setTimeout等，由浏览器内核的Timer模块处理，时间到达时，回调函数添加到任务队列中； c、Ajax，由浏览器内核的Network模块处理，网络请求返回后，添加到任务队列中。
 
