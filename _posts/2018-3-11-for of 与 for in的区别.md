@@ -88,3 +88,97 @@ Object.key(myObject).forEach(function(key, index) {
     console.log(key,myObject[key])
 })
 ```
+
+**example**
+
+迭代数组
+
+```js
+let iterable = [10,20,30];
+
+for (let value of iterable) {
+    value += 1;
+    console.log(value);
+}
+//11
+//21
+//31
+```
+
+迭代string
+
+```js
+let iterable = "foo";
+
+for (let value of iterable) {
+    console.log(value);
+}
+```
+
+迭代TypeArray
+
+```js
+let iterable = new Uint8Array([0x00, 0xff]);
+for (let value of iterable) {
+    console.log(value);
+}
+//0
+//255
+```
+
+迭代map
+
+```js
+let iterable = new Map([["a", 1], ["b", 2], ["c", 3]]);
+
+for(let entry of iterable) {
+    console.log(entry);
+}
+
+//["a",1]
+//["b",2]
+//["c",3]
+
+for (let [key,value] of iterable) {
+    console.log(value);
+}
+//1
+//2
+//3
+```
+
+迭代 Set
+
+```js
+let iterable = new Set([1,1,2,2,3,3])
+
+for (let value of iterable) {
+    console.log(value);
+}
+//1
+//2
+//3
+```
+
+迭代 arguments 对象
+
+    ```js
+    (function() {
+    for (let argument of arguments) {
+        console.log(argument);
+    }
+    })(1, 2, 3);
+
+    // 1
+    // 2
+    // 3
+    ```
+
+迭代 DOM 集合
+
+```js
+//注意：这只能在实现了NodeList.prototype[Symbol.iterator]的平台上运行
+let articleParagraphs = document.querySelectorAll("arrticle > p");
+for (let paragraphs of articleParagraphs) {
+    paragraphs.classList.add("read");
+}
