@@ -53,3 +53,33 @@ DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的�
 
 documentFragment 被所有主流浏览器支持。所以，没有理由不用。
 
+它还有利于实现文档的剪切、复制和粘贴操作。尤其是与 `Range` 接口一起使用时更是如此。也可以用 `Range.extractContents() `方法 或 `Range.cloneContents() `方法 获取包含现有文档的片段的 DocumentFragment 节点。
+
+1. extractContents() 方法删除文档内容，并以 DocumentFragment 对象的形式返回它。
+
+语法：
+extractContents()
+返回值
+一个 DocumentFragment 节点，包含该范围的内容。
+
+抛出
+如果要提取的文档内容是只读的，该方法将抛出代码为 NO_MODIFICATION_ALLOWED_ERR 的 DOMException 异常。
+
+如果当前范围包括 DocumentType 节点，该方法将抛出代码为 HIERARCHY_REQUEST_ERR 的 DOMException 异常。
+
+描述
+该方法将删除文档的指定范围，并返回包含被删除内容（或被删除的内容的副本）的 DocumentFragment 节点。当返回该方法时，范围将折叠，文档中可能出现相邻的 Text 节点（用 Node.normalize() 可以合并）。
+
+
+2. cloneContents() 方法把范围（Range）的内容复制到一个 DocumentFragment 对象。
+
+语法：
+extractContents()
+返回值
+一个 DocumentFragment 节点，包含该范围中的文档内容的副本。
+
+抛出
+如果当前范围包括 DocumentType 节点，该方法将抛出代码为 HIERARCHY_REQUEST_ERR 的 DOMException 异常。
+
+描述
+该方法将复制当前范围的内容，把它存放在一个 DocumentFragment 对象中，返回该对象。
