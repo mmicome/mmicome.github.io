@@ -1,5 +1,3 @@
-### build my own blog step by step:
-- 分析需求
-- 设计结构（模块化/MVC）
-- 逐步实现
-- 性能优化
+## attention: 目前已不在此处更新， 博客迁移中
+
+## 正在搭建基于node blog, 并将部署到个人服务器， 
